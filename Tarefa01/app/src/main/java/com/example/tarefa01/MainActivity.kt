@@ -5,16 +5,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.tarefa01.ui.theme.Tarefa01Theme
+
 class MainActivity : ComponentActivity() {
     private var pontuacaoTimeA: Int = 0
     private var pontuacaoTimeB: Int = 0
@@ -65,6 +56,8 @@ class MainActivity : ComponentActivity() {
         }else {
             pTimeB.setText(pontuacaoTimeB.toString())
         }
+
+        atualizaCoresPlacar()
     }
 
     fun reiniciarPartida() {
@@ -74,5 +67,24 @@ class MainActivity : ComponentActivity() {
         pTimeB.setText(pontuacaoTimeB.toString())
         Toast.makeText(this,"Placar reiniciado",
             Toast.LENGTH_SHORT).show()
+
+        atualizaCoresPlacar()
+    }
+
+    fun atualizaCoresPlacar() {
+        when {
+            pontuacaoTimeA > pontuacaoTimeB -> {
+                pTimeA.setBackgroundColor(getColor(R.color.teal_200))
+                pTimeB.setBackgroundColor(getColor(R.color.purple_200))
+            }
+            pontuacaoTimeB > pontuacaoTimeA -> {
+                pTimeB.setBackgroundColor(getColor(R.color.teal_200))
+                pTimeA.setBackgroundColor(getColor(R.color.purple_200))
+            }
+            else -> {
+                pTimeA.setBackgroundColor(getColor(android.R.color.darker_gray))
+                pTimeB.setBackgroundColor(getColor(android.R.color.darker_gray))
+            }
+        }
     }
 }
