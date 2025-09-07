@@ -5,16 +5,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.tarefa01.ui.theme.Tarefa01Theme
+
 class MainActivity : ComponentActivity() {
     private var pontuacaoTimeA: Int = 0
     private var pontuacaoTimeB: Int = 0
@@ -32,28 +23,38 @@ class MainActivity : ComponentActivity() {
         val bTresPontosTimeA: Button = findViewById(R.id.tresPontosA)
         val bDoisPontosTimeA: Button = findViewById(R.id.doisPontosA)
         val bTLivreTimeA: Button = findViewById(R.id.tiroLivreA)
+        val btSubtrairTimeA : Button = findViewById(R.id.negativoA)
+
         val bTresPontosTimeB: Button = findViewById(R.id.tresPontosB)
         val bDoisPontosTimeB: Button = findViewById(R.id.doisPontosB)
         val bTLivreTimeB: Button = findViewById(R.id.tiroLivreB)
+        val btSubtrairTimeB : Button = findViewById(R.id.negativoB)
+
         val bReiniciar: Button = findViewById(R.id.reiniciarPartida)
 
         bTresPontosTimeA.setOnClickListener { adicionarPontos(3, "A") }
         bDoisPontosTimeA.setOnClickListener { adicionarPontos(2, "A") }
         bTLivreTimeA.setOnClickListener { adicionarPontos(1, "A") }
+        btSubtrairTimeA.setOnClickListener { adicionarPontos(-1, "A") }
 
         bTresPontosTimeB.setOnClickListener { adicionarPontos(3, "B") }
         bDoisPontosTimeB.setOnClickListener { adicionarPontos(2, "B") }
         bTLivreTimeB.setOnClickListener { adicionarPontos(1, "B") }
+        btSubtrairTimeB.setOnClickListener { adicionarPontos(-1, "B") }
 
         bReiniciar.setOnClickListener { reiniciarPartida() }
     }
 
     fun adicionarPontos(pontos: Int, time: String) {
         if(time == "A"){
-            pontuacaoTimeA += pontos
+            if (pontos + pontuacaoTimeA >= 0) {
+                pontuacaoTimeA += pontos
+            }
 
         }else {
-            pontuacaoTimeB += pontos
+            if (pontos + pontuacaoTimeB >= 0) {
+                pontuacaoTimeB += pontos
+            }
         }
 
         atualizaPlacar(time)
@@ -65,6 +66,8 @@ class MainActivity : ComponentActivity() {
         }else {
             pTimeB.setText(pontuacaoTimeB.toString())
         }
+
+        atualizaCoresPlacar()
     }
 
     fun reiniciarPartida() {
@@ -74,5 +77,30 @@ class MainActivity : ComponentActivity() {
         pTimeB.setText(pontuacaoTimeB.toString())
         Toast.makeText(this,"Placar reiniciado",
             Toast.LENGTH_SHORT).show()
+
+        atualizaCoresPlacar()
+    }
+
+    fun atualizaCoresPlacar() {
+        when {
+            pontuacaoTimeA > pontuacaoTimeB -> {
+                pTimeA.setBackgroundColor(getColor(R.color.black))
+                pTimeA.setTextColor(getColor(R.color.white))
+                pTimeB.setBackgroundColor(getColor(android.R.color.darker_gray))
+                pTimeB.setTextColor(getColor(R.color.black))
+            }
+            pontuacaoTimeB > pontuacaoTimeA -> {
+                pTimeB.setBackgroundColor(getColor(R.color.black))
+                pTimeB.setTextColor(getColor(R.color.white))
+                pTimeA.setBackgroundColor(getColor(android.R.color.darker_gray))
+                pTimeA.setTextColor(getColor(R.color.black))
+            }
+            else -> {
+                pTimeA.setBackgroundColor(getColor(android.R.color.darker_gray))
+                pTimeB.setBackgroundColor(getColor(android.R.color.darker_gray))
+                pTimeA.setTextColor(getColor(R.color.black))
+                pTimeB.setTextColor(getColor(R.color.black))
+            }
+        }
     }
 }

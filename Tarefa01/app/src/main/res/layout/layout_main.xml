@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context="com.example.tarefa01.MainActivity">
 
     <LinearLayout
@@ -23,7 +24,9 @@
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="Time A"
-                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="40sp"
                 android:fontFamily="sans-serif"/>
 
             <TextView
@@ -34,6 +37,7 @@
                 android:padding="4dp"
                 android:text="0"
                 android:textSize="54sp"
+                android:textColor="@color/black"
                 android:fontFamily="sans-serif"/>
 
             <Button
@@ -41,6 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:textSize="18sp"
+                android:background="@drawable/custom_button"
                 android:text="+3 PONTOS" />
 
             <Button
@@ -48,6 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
                 android:text="+2 PONTOS" />
 
             <Button
@@ -55,7 +63,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
                 android:text="Tiro Livre" />
+
+            <Button
+                android:id="@+id/negativoA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
+                android:text="- 1 Ponto" />
         </LinearLayout>
 
         <View
@@ -77,7 +96,9 @@
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="Time B"
-                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="40sp"
                 android:fontFamily="sans-serif"/>
 
             <TextView
@@ -88,6 +109,7 @@
                 android:padding="4dp"
                 android:text="0"
                 android:textSize="54sp"
+                android:textColor="@color/black"
                 android:fontFamily="sans-serif"/>
 
             <Button
@@ -95,6 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
                 android:text="+3 PONTOS" />
 
             <Button
@@ -102,6 +126,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
                 android:text="+2 PONTOS" />
 
             <Button
@@ -109,7 +135,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
                 android:text="Tiro Livre" />
+
+            <Button
+                android:id="@+id/negativoB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
+                android:text="- 1 Ponto" />
         </LinearLayout>
 
     </LinearLayout>
@@ -121,5 +158,8 @@
         android:text="Reiniciar Partida"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:background="@android:color/holo_red_light"
+        android:textSize="18sp"
         android:layout_margin="32dp"/>
 </RelativeLayout>
