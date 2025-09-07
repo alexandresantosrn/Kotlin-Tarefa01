@@ -66,6 +66,15 @@
                 android:background="@drawable/custom_button"
                 android:textSize="18sp"
                 android:text="Tiro Livre" />
+
+            <Button
+                android:id="@+id/negativoA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
+                android:text="- 1 Ponto" />
         </LinearLayout>
 
         <View
@@ -129,6 +138,15 @@
                 android:background="@drawable/custom_button"
                 android:textSize="18sp"
                 android:text="Tiro Livre" />
+
+            <Button
+                android:id="@+id/negativoB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/custom_button"
+                android:textSize="18sp"
+                android:text="- 1 Ponto" />
         </LinearLayout>
 
     </LinearLayout>
